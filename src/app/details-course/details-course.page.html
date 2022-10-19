@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-title>details-course</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button (click)="presentAlert()">
+        <ion-icon slot="icon-only" name="trash-outline"></ion-icon>
+      </ion-button>
+
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="ion-margin">
+    <strong>Details of this course</strong>
+
+  </div>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col size="6" offset="3">
+        <ion-img [src]="this.selectedCourse.image"></ion-img>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="10" offset="1">
+        <strong>{{ selectedCourse.title}} By {{ selectedCourse.author }}</strong>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <strong>Content of this course</strong>
+        <ion-list>
+          <ion-item *ngFor="let keyword of selectedCourse.keywords">
+            <ion-label>{{keyword}}</ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-title>Add a-course</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="ion-margin">
+    <form #f="ngForm" (ngSubmit)="onSubmit( f.value)">
+      <label for="name">Title</label>
+      <input #inputName="ngModel" required ngModel type="text" class="form-control" name="title" id="name">
+      <div *ngIf="inputName.invalid && inputName.touched" class="alert alert-danger">Ce champ est obligatoire</div>
+      <label for="lieu">Lieu</label>
+      <input required ngModel type="text" class="form-control" id="lieu" name="lieu">
+      <label for="price">Prix</label>
+      <input required ngModel type="text" class="form-control" id="price" name="price">
+      <label for="type">Type</label>
+      <input required ngModel type="text" class="form-control" id="type" name="type">
+      <label for="image">Image</label>
+      <input required ngModel type="text" class="form-control" id="image" name="image">
+      <label for="tel">Tel</label>
+      <input required ngModel type="number" class="form-control" id="tel" name="tel">
+      <label for="description">Description</label>
+      <input required ngModel type="text" class="form-control" id="description" name="description">
+      <input hidden ngModel="mazenid" type="text" class="form-control" value="MazenId" id="ownerId" name="ownerId">
+
+      <ion-button [disabled]="f.invalid" type='submit' expand="block">Add</ion-button>
+    </form>
+
+    <!-- <pre>
+    {{ f.value | json}}
+  </pre> -->
+  </div>
+
+
+</ion-content>
